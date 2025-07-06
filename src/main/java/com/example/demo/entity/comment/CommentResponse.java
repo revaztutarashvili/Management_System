@@ -1,4 +1,4 @@
 package com.example.demo.entity.comment;
 
-public class CommentReponse {
+public class CommentResponse {
 }
