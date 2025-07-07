@@ -11,7 +11,7 @@ public class CommentMapper {
         commentEntity.setText(request.getText());
         return  commentEntity;
     }
-
+// ეს მაქვს გასაგრძეელებელიიიიიიიიიიი
     public static CommentResponse mapEntityToResponse(CommentEntity entity){
         CommentResponse commentResponse = new CommentResponse();
         commentResponse.setText(entity.getText());
