@@ -44,4 +44,10 @@ public class ProductService {
         productRepository.deleteById(productId);
     }
 
+    public void doesProductExist(Long userId){
+        boolean b = productRepository.existsById(userId);
+        if (!b){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"product doesn't exist");
+        }
+    }
 }

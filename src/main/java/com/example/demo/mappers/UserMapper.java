@@ -8,7 +8,7 @@ import com.example.demo.entity.user.UserResponse;
 
 public class UserMapper {
 
-    
+
 //მგონი ეს მეთოდი არ დამჭირდება.
 /*    public static UserEntity mapRequestToEntity(UserRequest userRequest){
         UserEntity userEntity = new UserEntity();
