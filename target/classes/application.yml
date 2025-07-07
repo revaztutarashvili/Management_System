@@ -1,0 +1,10 @@
+spring:
+    application:
+        name: lecture24
+    datasource:
+        password: 953012
+        url: jdbc:postgresql://localhost:5432/management_system
+        username: postgres
+    jpa:
+        hibernate:
+            ddl-auto: update
