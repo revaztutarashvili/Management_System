@@ -7,7 +7,7 @@ public class ProductMapper {
 
     public static ProductEntity mapRequestToEntity(ProductRequest productRequest){
         ProductEntity productEntity = new ProductEntity();
-        productEntity.setCount(productRequest.getCoount());
+        productEntity.setCount(productRequest.getCount());
         productEntity.setDescription(productRequest.getDescription());
         productEntity.setName(productEntity.getName());
         return productEntity;

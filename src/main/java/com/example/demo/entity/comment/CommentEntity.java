@@ -12,9 +12,9 @@ public class CommentEntity {
     private long ID;
 
     @Column(name = "comment_text")
-    private String
+    private String text;
 
-            text;
+
     @JoinColumn(name = "product_id")
     @ManyToOne
     private ProductEntity productEntity;

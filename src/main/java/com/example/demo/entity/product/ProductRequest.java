@@ -1,23 +1,22 @@
 package com.example.demo.entity.product;
 
-import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.validation.constraints.NotNull;
 
 public class ProductRequest {
     @NotNull(message = "can't be null")
-    private Integer coount;
+    private Integer count;
 
     @NotNull(message = "can't be null")
     private String name;
 
     private String description;
 
-    public Integer getCoount() {
-        return coount;
+    public Integer getCount() {
+        return count;
     }
 
-    public void setCoount(Integer coount) {
-        this.coount = coount;
+    public void setCount(Integer count) {
+        this.count = count;
     }
 
     public String getName() {
