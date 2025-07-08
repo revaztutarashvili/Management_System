@@ -6,7 +6,6 @@ import com.example.demo.service.CommentService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,10 +32,11 @@ public class CommentController {
     @GetMapping
     public ResponseEntity<Page<CommentResponse>> findByProductId(
         @RequestParam("productId") Long productId,
-        @RequestParam("page") Long page,
-        @RequestParam("size") Long size
+        @RequestParam("page") Integer page,
+        @RequestParam("size") Integer size
         ){
-        commentService.
+        Page<CommentResponse> commentsForProduct = commentService.getCommentsForProduct(productId, page, size);
+        return ResponseEntity.status(HttpStatus.OK).body(commentsForProduct);
     }
 }
 

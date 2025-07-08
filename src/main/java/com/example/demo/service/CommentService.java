@@ -24,7 +24,7 @@ public class CommentService {
     }
 
 
-    Page<CommentResponse> getCommentsForProduct(Long productId, Integer size, Integer page){
+    public Page<CommentResponse> getCommentsForProduct(Long productId, Integer size, Integer page){
     productService.doesProductExist(productId);
     return commentRepository
             .findCommentsForProduct(productId,
