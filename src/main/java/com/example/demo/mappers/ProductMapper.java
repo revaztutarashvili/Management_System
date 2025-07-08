@@ -10,7 +10,7 @@ public class ProductMapper {
         ProductEntity productEntity = new ProductEntity();
         productEntity.setCount(productRequest.getCount());
         productEntity.setDescription(productRequest.getDescription());
-        productEntity.setName(productEntity.getName());
+        productEntity.setName(productRequest.getName());
         return productEntity;
     }
 

@@ -9,7 +9,7 @@ public class CommentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long ID;
+    private long id;
 
     @Column(name = "comment_text")
     private String text;
@@ -23,18 +23,18 @@ public class CommentEntity {
     public CommentEntity() {
     }
 
-    public CommentEntity(long ID, String text, ProductEntity productEntity) {
-        this.ID = ID;
+    public CommentEntity(long id, String text, ProductEntity productEntity) {
+        this.id = id;
         this.text = text;
         this.productEntity = productEntity;
     }
 
-    public long getID() {
-        return ID;
+    public long getId() {
+        return id;
     }
 
-    public void setID(long ID) {
-        this.ID = ID;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getText() {

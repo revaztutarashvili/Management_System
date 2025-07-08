@@ -11,10 +11,12 @@ public class CommentMapper {
         commentEntity.setText(request.getText());
         return  commentEntity;
     }
-// ეს მაქვს გასაგრძეელებელიიიიიიიიიიი
+
     public static CommentResponse mapEntityToResponse(CommentEntity entity){
         CommentResponse commentResponse = new CommentResponse();
+        commentResponse.setId(entity.getId());
         commentResponse.setText(entity.getText());
-        commentResponse.setProductName(entity.());
+        commentResponse.setProductName(entity.getProductEntity().getName());
+        return commentResponse;
     }
 }

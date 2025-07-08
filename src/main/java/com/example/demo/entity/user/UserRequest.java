@@ -6,11 +6,11 @@ import jakarta.validation.constraints.Size;
 public class UserRequest {
     @NotBlank
     @Size(min = 8, max = 24, message = "userName characters: 8-24")
-    public String userName;
+    private String userName;
 
     @NotBlank(message = "message can't be blank")
-    @Size(min = 4, max = 12, message = "min 2 - max 12 characters ")
-    public String name;
+    @Size(min = 4, max = 12, message = "min 4 - max 12 characters ")
+    private String name;
 
 
     public String getUserName() {

@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 public class CommentRequest {
-    @NotBlank(message = "text field shouldn't be blank")
+
     @Size(min = 1, max = 512, message = "text should be between 1 - 512")
     private String text;
 

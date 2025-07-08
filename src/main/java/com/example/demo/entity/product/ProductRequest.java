@@ -1,14 +1,16 @@
 package com.example.demo.entity.product;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class ProductRequest {
-    @NotNull(message = "can't be null")
+    @NotBlank(message = "can't be blank")
     private Integer count;
 
-    @NotNull(message = "can't be null")
+    @NotBlank(message = "can't be blank")
     private String name;
 
+    @NotBlank(message = "can't be blank")
     private String description;
 
     public Integer getCount() {

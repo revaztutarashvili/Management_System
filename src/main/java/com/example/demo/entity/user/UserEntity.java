@@ -1,20 +1,23 @@
 package com.example.demo.entity.user;
-
 import jakarta.persistence.*;
-import org.aspectj.bridge.Message;
+
 
 @Entity
 @Table (name = "user_entity")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name="user_name")
     private String userName;
 
     @Column(name = "name")
     private String name;
+
+
+    public UserEntity() {
+    }
 
     public long getId() {
         return id;

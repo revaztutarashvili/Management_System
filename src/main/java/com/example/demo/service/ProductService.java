@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -28,8 +27,8 @@ public class ProductService {
 
         ProductEntity productEntity = ProductMapper.mapRequestToEntity(request);
         productEntity.setProductOwner(userService.findById(userId));
-        ProductEntity save = productRepository.save(productEntity);
-        return ProductMapper.mapEntityToResponse(save);
+        ProductEntity saveProduct = productRepository.save(productEntity);
+        return ProductMapper.mapEntityToResponse(saveProduct);
 
     }
 
@@ -49,5 +48,12 @@ public class ProductService {
         if (!b){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"product doesn't exist");
         }
+    }
+
+
+    public ProductEntity findById(Long productId){
+        return productRepository.findById(productId)
+                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "product not found"));
+
     }
 }
