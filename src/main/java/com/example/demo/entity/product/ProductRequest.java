@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class ProductRequest {
-    @NotBlank(message = "can't be blank")
+    @NotNull(message = "can't be Null")
     private Integer count;
 
     @NotBlank(message = "can't be blank")

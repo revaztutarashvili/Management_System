@@ -3,6 +3,8 @@ package com.example.demo.entity.product;
 import com.example.demo.entity.user.UserEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 @Entity
 @Table (name = "product_entity")
@@ -13,7 +15,8 @@ public class ProductEntity {
     private Long id;
 
     @Column(name = "count")
-    @NotBlank(message = "field should not be empty")
+    @NotNull(message = "field should not be null")
+    @Positive(message = "count must be positive")
     private Integer count;
 
     @Column(name = "product_name")
@@ -35,18 +38,18 @@ public class ProductEntity {
     public ProductEntity() {
     }
 
-    public ProductEntity(int count, String description, String name, UserEntity productOwner) {
+    public ProductEntity(Integer count, String description, String name, UserEntity productOwner) {
         this.count = count;
         this.description = description;
         this.name = name;
         this.productOwner = productOwner;
     }
 
-    public int getCount() {
+    public Integer getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(Integer count) {
         this.count = count;
     }
 
