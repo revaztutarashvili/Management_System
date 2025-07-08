@@ -2,6 +2,7 @@ package com.example.demo.entity.product;
 
 import com.example.demo.entity.user.UserEntity;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table (name = "product_entity")
@@ -12,13 +13,16 @@ public class ProductEntity {
     private Long id;
 
     @Column(name = "count")
+    @NotBlank(message = "field should not be empty")
     private Integer count;
 
     @Column(name = "product_name")
+    @NotBlank(message = "field should not be empty")
     private String name;
 
 
     @Column(name = "product_description")
+    @NotBlank(message = "field should not be empty")
     private String description;
 
 

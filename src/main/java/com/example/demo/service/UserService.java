@@ -22,14 +22,6 @@ public class UserService {
 
 
 
-
-    public UserEntity findById(Long id){
-        Optional<UserEntity> byId = userRepository.findById(id);
-        return byId
-                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "user not found"));
-    }
-
-
     public UserResponse createUser (UserRequest userRequest){
 
     UserEntity userEntity = new UserEntity();
@@ -38,6 +30,14 @@ public class UserService {
     UserEntity save = userRepository.save(userEntity);
     return UserMapper.mapEntityToResponse(save);
     }
+
+
+    public UserEntity findById(Long id){
+        Optional<UserEntity> byId = userRepository.findById(id);
+        return byId.
+                orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "user not found"));
+    }
+
 
     public UserResponse view(Long id) {
         return UserMapper.mapEntityToResponse(findById(id));
