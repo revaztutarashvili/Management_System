@@ -15,7 +15,7 @@ import java.util.List;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler
-    private ResponseEntity<ExceptionBody> handleMethodArgumentNotValidExceprion(MethodArgumentNotValidException exception){
+    private ResponseEntity<ExceptionBody> handleMethodArgumentNotValidException(MethodArgumentNotValidException exception){
         List<FieldError> fieldErrors = exception.getFieldErrors();
         ExceptionBody exceptionBody = new ExceptionBody();
         List<String> messages = new ArrayList<>();
@@ -26,12 +26,19 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler
-    private ResponseEntity<ExceptionBody> handleResponseStatusExceprion(ResponseStatusException exception){
+    private ResponseEntity<ExceptionBody> handleResponseStatusException(ResponseStatusException exception){
         ExceptionBody exceptionBody = new ExceptionBody();
         exceptionBody.setMessage(List.of(exception.getMessage()));
         exceptionBody.setTimestamp(System.currentTimeMillis());
         return ResponseEntity.status(exception.getStatusCode()).body(exceptionBody);
     }
 
-    
+
+    @ExceptionHandler
+    private ResponseEntity<ExceptionBody> handleRuntimeException(RuntimeException exception){
+        ExceptionBody exceptionBody = new ExceptionBody();
+        exceptionBody.setMessage(List.of(exception.getMessage()));
+        exceptionBody.setTimestamp(System.currentTimeMillis());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(exceptionBody);
+    }
 }
