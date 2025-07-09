@@ -32,10 +32,14 @@ public class CommentController {
     @GetMapping
     public ResponseEntity<Page<CommentResponse>> findByProductId(
         @RequestParam("productId") Long productId,
-        @RequestParam("page") Integer page,
-        @RequestParam("size") Integer size
+        /**
+         * @page არის დინამიური და დამოკიდებულია ფეიჯის საიზე. მაგალითად თუ მაქვს 10 კომენტარი და @size მივუთითებ 5
+         * მექნება 2 ფეიჯი, რადგან 5 კომენტარი 2 ფეიჯში თავსდება. პირველი ფეიჯი არის 0 მასივის მსგავსად.
+         * */
+        @RequestParam("page_number") Integer page,
+        @RequestParam("page_size") Integer size
         ){
-        Page<CommentResponse> commentsForProduct = commentService.getCommentsForProduct(productId, page, size);
+        Page<CommentResponse> commentsForProduct = commentService.getCommentsForProduct(productId, size, page);
         return ResponseEntity.status(HttpStatus.OK).body(commentsForProduct);
     }
 }
